@@ -1,7 +1,15 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
+import InstantSearch from 'vue-instantsearch';
+import { createRouter } from './router';
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+Vue.use(InstantSearch);
+
+export function createApp() {
+  const router = createRouter();
+  const app = new Vue({
+    router,
+    render: h => h(App),
+  });
+  return { app, router };
+}
