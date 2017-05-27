@@ -29,7 +29,7 @@ export default {
     );
 
     store.indexName = 'ikea';
-    store.query = 'test';
+    store.query = route.params.query ? route.params.query : '';
     store.start();
 
     return store.waitUntilInSync().then(() => {
@@ -46,6 +46,18 @@ export default {
     this.searchStore = createFromSerialized(
       window.__INITIAL_STATE__.searchStore
     );
+  },
+  watch: {
+    $route(to, from) {
+      this.searchStore.query = this.$route.params.query ? this.$route.params.query : '';
+    },
+    'searchStore.query'(to, from) {
+      if (to.length === 0) {
+        this.$router.push({ name: 'home' });
+      } else {
+        this.$router.push({ name: 'search', params: { query: to } });
+      }
+    },
   },
   mounted() {
     // this.searchStore.start();

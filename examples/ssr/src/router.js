@@ -8,6 +8,9 @@ Vue.use(Router);
 export function createRouter() {
   return new Router({
     mode: 'history',
-    routes: [{ path: '/', component: Search }],
+    routes: [
+      { path: '/', name:'home', component: Search },
+      { path: '/search/:query?', name:'search', component: Search }
+    ],
   });
 }
