@@ -5,7 +5,7 @@
       <ais-results>
         <template scope="{ result }">
           <li>
-            {{ result.name }}
+            <ais-highlight :result="result" attribute-name="name"></ais-highlight>
           </li>
         </template>
       </ais-results>
@@ -30,6 +30,8 @@ export default {
 
     store.indexName = 'ikea';
     store.query = route.params.query ? route.params.query : '';
+    store.highlightPreTag = '<mark>';
+    store.highlightPostTag = '</mark>';
     store.start();
 
     return store.waitUntilInSync().then(() => {
