@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { createFromAlgoliaCredentials } from 'instantsearch-store';
+import { createFromAlgoliaCredentials } from 'vue-instantsearch';
 
 const searchStore = createFromAlgoliaCredentials(
   'latency',
