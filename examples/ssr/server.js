@@ -38,4 +38,6 @@ server.get('*', (req, res) => {
   });
 });
 
+console.log('Application is running on: http://localhost:8080');
+
 server.listen('8080');
