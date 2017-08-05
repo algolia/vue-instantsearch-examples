@@ -120,7 +120,7 @@
             'ais-pagination__item--active': 'active',
             'ais-pagination__item--disabled': 'disabled'
 
-            }"/>
+            }" v-on:page-change="onPageChange"/>
 
         </div>
       </div>
@@ -132,6 +132,11 @@
 <script>
 export default {
   name: 'app',
+  methods: {
+    onPageChange() {
+      window.scrollTo(0,0);
+    }
+  }
 };
 </script>
 
