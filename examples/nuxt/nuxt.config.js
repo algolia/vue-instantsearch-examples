@@ -34,5 +34,7 @@ module.exports = {
         })
       }
     }
-  }
+  },
+
+  plugins: ['~plugins/vue-instantsearch']
 }
