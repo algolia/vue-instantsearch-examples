@@ -1,8 +1,11 @@
 <template>
   <ais-index :search-store="searchStore" :query="query">
-    <ais-input placeholder="Search for a user..."/>
-    <ais-results></ais-results>
-
+    <ais-input placeholder="Search for a product..."/>
+    <ais-results>
+      <template scope="{ result }">
+        <h2>{{ result.name }}</h2>
+      </template>
+    </ais-results>
   </ais-index>
 </template>
 
