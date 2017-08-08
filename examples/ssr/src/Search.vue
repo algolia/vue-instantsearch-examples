@@ -1,21 +1,25 @@
 <template>
-  <ais-index :searchStore="searchStore">
+  <ais-index :searchStore="searchStore" :auto-search="false">
+
     <ais-search-box placeholder="Find products"/>
-    <ul>
+    
+      <ais-refinement-list attribute-name="colors"></ais-refinement-list>
+
       <ais-results>
         <template scope="{ result }">
-          <li>
+          <div>
             <ais-highlight :result="result" attribute-name="name"></ais-highlight>
-          </li>
+          </div>
         </template>
       </ais-results>
-    </ul>
+
   </ais-index>
 </template>
 <script>
 import {
   createFromAlgoliaCredentials,
   createFromSerialized,
+  FACET_OR,
 } from 'vue-instantsearch';
 
 let store;
@@ -30,9 +34,11 @@ export default {
 
     store.indexName = 'ikea';
     store.query = route.params.query ? route.params.query : '';
+    store.addFacet('colors', FACET_OR);
     store.highlightPreTag = '<mark>';
     store.highlightPostTag = '</mark>';
     store.start();
+    store.refresh();
 
     return store.waitUntilInSync().then(() => {
       context.state = {
@@ -60,9 +66,6 @@ export default {
         this.$router.push({ name: 'search', params: { query: to } });
       }
     },
-  },
-  mounted() {
-    // this.searchStore.start();
   },
   data() {
     return {
