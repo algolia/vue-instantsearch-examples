@@ -17,6 +17,7 @@ searchStore.indexName = 'bestbuy'
 export default {
   async asyncData () {
     searchStore.start()
+    searchStore.refresh()
     await searchStore.waitUntilInSync()
 
     const serializedSearchStore = searchStore.serialize()
