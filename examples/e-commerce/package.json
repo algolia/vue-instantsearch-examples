@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^2.4.2",
-    "vue-instantsearch": "^0.5.0"
+    "vue-instantsearch": "^0.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

@@ -1,6 +1,16 @@
 <template>
-  <ais-index :search-store="searchStore" :query="query">
+  <ais-index :search-store="searchStore">
+
     <ais-input placeholder="Search for a product..."/>
+
+    <ais-price-range attribute-name="price"></ais-price-range>
+    
+    <ais-refinement-list attribute-name="colors"></ais-refinement-list>
+
+    <ais-tree-menu :attributes="['category', 'sub_category']">
+      <h3 slot="header">Browse by</h3>
+    </ais-tree-menu>
+    
     <ais-results>
       <template scope="{ result }">
         <h2>{{ result.name }}</h2>
@@ -20,10 +30,13 @@ searchStore.indexName = 'ikea';
 
 export default {
   props: {
-    query: {
-      type: String,
+    queryParameters: {
+      type: Object,
       default: '',
     },
+  },
+  created() {
+    this.searchStore.queryParameters = this.queryParameters;
   },
   data() {
     return {
@@ -31,11 +44,14 @@ export default {
     };
   },
   watch: {
-    'searchStore.query'(value) {
+    'searchStore.queryParameters'(parameters) {
+      const query = parameters;
+      delete query.index;
+
       this.$router.push({
-        name: 'search',
-        query: { q: value },
-      });
+         name: 'search',
+         query,
+       });
     },
   },
 };

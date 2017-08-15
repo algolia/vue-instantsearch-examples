@@ -9,10 +9,10 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "qs": "^6.5.0",
     "vue": "^2.2.1",
-    "vue-router": "^2.4.0",
     "vue-instantsearch": "*",
-    "instantsearch-store": "*"
+    "vue-router": "^2.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
