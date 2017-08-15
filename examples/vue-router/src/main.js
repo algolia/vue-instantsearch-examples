@@ -3,9 +3,11 @@ import VueRouter from 'vue-router';
 import InstantSearch from 'vue-instantsearch';
 import App from './App.vue';
 import Search from './Search.vue';
+import qs from 'qs';
 
 Vue.use(InstantSearch);
 Vue.use(VueRouter);
+
 
 const router = new VueRouter({
   routes: [
@@ -13,10 +15,18 @@ const router = new VueRouter({
       name: 'search',
       path: '/search',
       component: Search,
-      props: route => ({ query: route.query.q }),
+      props: route => ({ queryParameters: route.query }),
     },
     { path: '/', redirect: '/search' },
   ],
+  parseQuery(query) {
+    return qs.parse(query);
+  },
+  stringifyQuery(query) {
+      var result = qs.stringify(query);
+
+      return result ? ('?' + result) : '';
+  }
 });
 
 new Vue({
