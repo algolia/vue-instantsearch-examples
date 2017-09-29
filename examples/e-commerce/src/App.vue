@@ -158,6 +158,7 @@ export default {
   },
   mounted() {
     this.searchStore.addFacetRefinement('materials', 'Glass');
+    this.searchStore.addNumericRefinement('price', '<', 10);
   }
 };
 </script>
