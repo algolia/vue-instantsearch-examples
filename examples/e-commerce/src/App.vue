@@ -90,7 +90,7 @@
           </div>
 
           <ais-results>
-            <template scope="{ result }">
+            <template slot-scope="{ result }">
               <div class="search-result">
                 <img class="result__image img-responsive" :src="result.image">
 

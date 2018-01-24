@@ -1,0 +1,6 @@
+{
+  "name": "vue-examples",
+  "repository": "https://github.com/algolia/vue-instantsearch-examples.git",
+  "private": true,
+  "workspaces": ["examples/*"]
+}

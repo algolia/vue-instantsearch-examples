@@ -16,7 +16,7 @@
             <ais-stats></ais-stats>
           </div>
 
-          <template scope="{ result }">
+          <template slot-scope="{ result }">
             <div class="search-result">
               <img class="result__image img-responsive" :src="result.thumbnailImage">
 
@@ -52,7 +52,7 @@
             <ais-stats></ais-stats>
           </div>
 
-          <template scope="{ result }">
+          <template slot-scope="{ result }">
             <div class="search-result">
               <img class="result__image img-responsive" :src="result.image">
 

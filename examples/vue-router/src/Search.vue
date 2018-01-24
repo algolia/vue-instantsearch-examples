@@ -12,7 +12,7 @@
     </ais-tree-menu>
     
     <ais-results>
-      <template scope="{ result }">
+      <template slot-scope="{ result }">
         <h2>{{ result.name }}</h2>
       </template>
     </ais-results>
