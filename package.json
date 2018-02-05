@@ -2,5 +2,11 @@
   "name": "vue-examples",
   "repository": "https://github.com/algolia/vue-instantsearch-examples.git",
   "private": true,
-  "workspaces": ["examples/*"]
+  "workspaces": [
+    "examples/e-commerce",
+    "examples/multi-index",
+    "examples/quick-start",
+    "examples/ssr",
+    "examples/vue-router"
+  ]
 }
