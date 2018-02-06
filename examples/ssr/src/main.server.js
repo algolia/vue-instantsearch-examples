@@ -1,10 +1,10 @@
 import { createApp } from './main';
 
-export default context => {
+export default context =>
   // since there could potentially be asynchronous route hooks or components,
   // we will be returning a Promise so that the server can wait until
   // everything is ready before rendering.
-  return new Promise((resolve, reject) => {
+  new Promise((resolve, reject) => {
     const { app, router } = createApp();
 
     // set server-side router's location
@@ -15,6 +15,7 @@ export default context => {
       const matchedComponents = router.getMatchedComponents();
       // no matched routes, reject with 404
       if (!matchedComponents.length) {
+        // eslint-disable-next-line prefer-promise-reject-errors
         reject({ code: 404, context });
       }
 
@@ -35,4 +36,3 @@ export default context => {
         .catch(reject);
     }, reject);
   });
-};
