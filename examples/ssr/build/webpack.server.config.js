@@ -1,7 +1,8 @@
-const merge = require('webpack-merge')
-const nodeExternals = require('webpack-node-externals')
-const baseConfig = require('./webpack.base.config.js')
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
+/* eslint-disable import/no-commonjs */
+const merge = require('webpack-merge');
+const nodeExternals = require('webpack-node-externals');
+const baseConfig = require('./webpack.base.config.js');
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 
 module.exports = merge(baseConfig, {
   // Point entry to your app's server entry file
@@ -17,7 +18,7 @@ module.exports = merge(baseConfig, {
 
   // This tells the server bundle to use Node-style exports
   output: {
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
 
   // https://webpack.js.org/configuration/externals/#function
@@ -28,13 +29,11 @@ module.exports = merge(baseConfig, {
     // do not externalize dependencies that need to be processed by webpack.
     // you can add more file types here e.g. raw *.vue files
     // you should also whitelist deps that modifies `global` (e.g. polyfills)
-    whitelist: /\.css$/
+    whitelist: /\.css$/,
   }),
 
   // This is the plugin that turns the entire output of the server build
   // into a single JSON file. The default file name will be
   // `vue-ssr-server-bundle.json`
-  plugins: [
-    new VueSSRServerPlugin()
-  ]
-})
+  plugins: [new VueSSRServerPlugin()],
+});

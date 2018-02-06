@@ -4,15 +4,15 @@
     <ais-input placeholder="Search for a product..."/>
 
     <ais-price-range attribute-name="price"></ais-price-range>
-    
+
     <ais-refinement-list attribute-name="colors"></ais-refinement-list>
 
     <ais-tree-menu :attributes="['category', 'sub_category']">
       <h3 slot="header">Browse by</h3>
     </ais-tree-menu>
-    
+
     <ais-results>
-      <template scope="{ result }">
+      <template slot-scope="{ result }">
         <h2>{{ result.name }}</h2>
       </template>
     </ais-results>
@@ -49,10 +49,9 @@ export default {
       delete query.index;
 
       this.$router.push({
-         name: 'search',
-         query,
-       });
+        name: 'search',
+        query,
+      });
     },
   },
-};
-</script>
+};</script>

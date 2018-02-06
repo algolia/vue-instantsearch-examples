@@ -16,7 +16,7 @@
             <ais-stats></ais-stats>
           </div>
 
-          <template scope="{ result }">
+          <template slot-scope="{ result }">
             <div class="search-result">
               <img class="result__image img-responsive" :src="result.thumbnailImage">
 
@@ -52,7 +52,7 @@
             <ais-stats></ais-stats>
           </div>
 
-          <template scope="{ result }">
+          <template slot-scope="{ result }">
             <div class="search-result">
               <img class="result__image img-responsive" :src="result.image">
 
@@ -95,133 +95,132 @@ export default {
       query: '',
     };
   },
-};
-</script>
+};</script>
 
 <style lang="scss" rel="stylesheet/scss">
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin-top: 60px;
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+.ais-input {
+  width: 100%;
+  outline: none;
+  font-size: 15px;
+  padding: 7px;
+  box-sizing: border-box;
+  border: 2px solid lightgrey;
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+.ais-powered-by {
+  text-align: right;
+}
+
+.ais-stats {
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: flex;
+
+  .ais-index {
+    flex: 0 0 50%;
   }
+}
 
-  h2 {
-    margin-bottom: 5px;
+.search-result {
+  padding: 10px 20px 20px;
+
+  margin-bottom: 10px;
+  border: solid 1px #eee;
+  box-shadow: 0 0 3px #f6f6f6;
+  margin-right: 1%;
+  position: relative;
+  border-radius: 3px;
+  min-width: 220px;
+  background: #fff;
+  transition: all 0.5s;
+
+  &:after {
+    content: ' ';
+    clear: both;
+    display: block;
   }
+}
 
-  .ais-input {
-    width: 100%;
-    outline: none;
-    font-size: 15px;
-    padding: 7px;
-    box-sizing: border-box;
-    border: 2px solid lightgrey;
-    border-radius: 2px;
-    margin: 20px 0;
-  }
+.result__info {
+  padding: 0px 20px 20px;
+  overflow: hidden;
+}
 
-  .ais-powered-by {
-    text-align: right;
-  }
+.result__image {
+  float: left;
+  max-height: 75px;
+}
 
-  .ais-stats {
-    margin-bottom: 10px;
-  }
+.result__name {
+  font-size: 14px;
+  font-weight: bold;
+}
 
-  .grid {
-    display: flex;
+.result__name em,
+.result__type em,
+.result__description em {
+  font-style: normal;
+  background: rgba(143, 187, 237, 0.1);
+  box-shadow: inset 0 -1px 0 0 rgba(69, 142, 225, 0.8);
+}
 
-    .ais-index {
-      flex: 0 0 50%;
-    }
-  }
+.result__type em,
+.result__description em {
+  background: rgba(143, 187, 237, 0.1);
+  border-radius: 0;
+  box-shadow: inset 0 -1px 0 0 rgba(69, 142, 225, 0.8);
+}
 
-  .search-result {
-    padding: 10px 20px 20px;
+.result__price {
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+}
 
-    margin-bottom: 10px;
-    border: solid 1px #EEE;
-    box-shadow: 0 0 3px #f6f6f6;
-    margin-right: 1%;
-    position: relative;
-    border-radius: 3px;
-    min-width: 220px;
-    background: #FFF;
-    transition: all .5s;
+.result__type {
+  color: #a2a2a2;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
 
-    &:after {
-      content: " ";
-      clear: both;
-      display: block;
-    }
-  }
+.result__description {
+  font-size: 13px;
+}
 
-  .result__info {
-    padding: 0px 20px 20px;
-    overflow: hidden;
-  }
+.result__rating {
+  margin-top: 10px;
+}
 
-  .result__image {
-    float: left;
-    max-height: 75px;
+.result__star {
+  width: 1em;
+  height: 1em;
+}
 
-  }
+.result__star:before {
+  content: '\2605';
+  color: #fbae00;
+}
 
-  .result__name {
-    font-size: 14px;
-    font-weight: bold;
-  }
-
-  .result__name em, .result__type em, .result__description em {
-    font-style: normal;
-    background: rgba(143, 187, 237, .1);
-    box-shadow: inset 0 -1px 0 0 rgba(69, 142, 225, .8);
-  }
-
-  .result__type em, .result__description em {
-    background: rgba(143, 187, 237, .1);
-    border-radius: 0;
-    box-shadow: inset 0 -1px 0 0 rgba(69, 142, 225, .8);
-  }
-
-  .result__price {
-    font-size: 25px;
-    font-weight: bold;
-    position: absolute;
-    right: 20px;
-    bottom: 16px;
-  }
-
-  .result__type {
-    color: #a2a2a2;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-
-  .result__description {
-    font-size: 13px;
-  }
-
-  .result__rating {
-    margin-top: 10px;
-  }
-
-  .result__star {
-    width: 1em;
-    height: 1em;
-  }
-
-  .result__star:before {
-    content: '\2605';
-    color: #FBAE00;
-  }
-
-  .result__star--empty:before {
-    content: '\2606';
-    color: #FBAE00;
-  }
-
-
+.result__star--empty:before {
+  content: '\2606';
+  color: #fbae00;
+}
 </style>

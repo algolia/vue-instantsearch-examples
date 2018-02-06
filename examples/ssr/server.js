@@ -1,3 +1,4 @@
+/* eslint-disable import/no-commonjs */
 const express = require('express');
 const server = express();
 
@@ -31,6 +32,8 @@ server.get('*', (req, res) => {
       } else {
         res.status(500).end('Internal Server Error');
       }
+
+      // eslint-disable-next-line no-console
       console.log(err);
     } else {
       res.end(html);
@@ -38,6 +41,7 @@ server.get('*', (req, res) => {
   });
 });
 
+// eslint-disable-next-line no-console
 console.log('Application is running on: http://localhost:8080');
 
 server.listen('8080');

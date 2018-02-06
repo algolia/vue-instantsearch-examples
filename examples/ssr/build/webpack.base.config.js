@@ -1,5 +1,5 @@
+/* eslint-disable import/no-commonjs */
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   devtool: '#cheap-module-source-map',
