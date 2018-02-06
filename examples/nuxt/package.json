@@ -12,6 +12,6 @@
   "dependencies": {
     "nuxt": "^1.3.0",
     "vue": "^2.5.13",
-    "vue-instantsearch": "^1.3.4"
+    "vue-instantsearch": "^1.4.0"
   }
 }
