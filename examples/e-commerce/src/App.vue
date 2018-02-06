@@ -103,8 +103,8 @@
                   </div>
                   <div class="result__rating">
                     <template v-for="n in 5">
-                      <span v-if="n <= result.rating" class="result__star"></span>
-                      <span v-else class="result__star--empty"></span>
+                      <span v-if="n <= result.rating" class="result__star" :key="n"></span>
+                      <span v-else class="result__star--empty" :key="n"></span>
                     </template>
                   </div>
                   <div class="result__price">${{result.price}}</div>

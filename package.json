@@ -8,8 +8,7 @@
     "format": "prettier --write **/*.{js,vue,json}",
     "test": "yarn lint && yarn build"
   },
-  "comment":
-    "notice that examples/nuxt is missing from the workspace, because it breaks in a workspace",
+  "comment": "notice that examples/nuxt is missing from the workspace, because it breaks in a workspace",
   "workspaces": [
     "examples/e-commerce",
     "examples/multi-index",
