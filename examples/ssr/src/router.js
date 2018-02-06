@@ -9,8 +9,8 @@ export function createRouter() {
   return new Router({
     mode: 'history',
     routes: [
-      { path: '/', name:'home', component: Search },
-      { path: '/search/:query?', name:'search', component: Search }
+      { path: '/', name: 'home', component: Search },
+      { path: '/search/:query?', name: 'search', component: Search },
     ],
   });
 }

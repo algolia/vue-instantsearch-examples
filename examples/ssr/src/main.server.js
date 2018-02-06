@@ -28,6 +28,7 @@ export default context =>
               route: router.currentRoute,
             });
           }
+          return undefined;
         })
       )
         .then(() => {
