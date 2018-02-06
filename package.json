@@ -2,11 +2,29 @@
   "name": "vue-examples",
   "repository": "https://github.com/algolia/vue-instantsearch-examples.git",
   "private": true,
+  "scripts": {
+    "lint": "eslint examples/**/*{.js,.vue} --ext .js,.vue",
+    "build": "scripts/build.sh",
+    "format": "prettier --write **/*.{js,vue,json}",
+    "test": "yarn lint && yarn build"
+  },
+  "comment":
+    "notice that examples/nuxt is missing from the workspace, because it breaks in a workspace",
   "workspaces": [
     "examples/e-commerce",
     "examples/multi-index",
     "examples/quick-start",
     "examples/ssr",
     "examples/vue-router"
-  ]
+  ],
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.17.0",
+    "eslint-config-algolia": "^13.0.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.10.2"
+  }
 }

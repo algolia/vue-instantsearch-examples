@@ -8,7 +8,6 @@ import qs from 'qs';
 Vue.use(InstantSearch);
 Vue.use(VueRouter);
 
-
 const router = new VueRouter({
   routes: [
     {
@@ -23,12 +22,13 @@ const router = new VueRouter({
     return qs.parse(query);
   },
   stringifyQuery(query) {
-      var result = qs.stringify(query);
+    const result = qs.stringify(query);
 
-      return result ? ('?' + result) : '';
-  }
+    return result ? `?${result}` : '';
+  },
 });
 
+// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
   render: h => h(App),

@@ -13,25 +13,25 @@
 
 <style>
 html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
 }
 </style>
 
 <script>
-import InstantSearch, {
+import {
   createFromAlgoliaCredentials,
   createFromSerialized,
-} from "vue-instantsearch";
+} from 'vue-instantsearch';
 
 const searchStore = createFromAlgoliaCredentials(
-  "latency",
-  "3d9875e51fbd20c7754e65422f7ce5e1"
+  'latency',
+  '3d9875e51fbd20c7754e65422f7ce5e1'
 );
-searchStore.indexName = "bestbuy";
+searchStore.indexName = 'bestbuy';
 
-searchStore.highlightPreTag = "<mark>";
-searchStore.highlightPostTag = "</mark>";
+searchStore.highlightPreTag = '<mark>';
+searchStore.highlightPostTag = '</mark>';
 
 export default {
   async asyncData() {

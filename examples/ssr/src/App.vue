@@ -7,8 +7,7 @@
 <script>
 export default {
   name: 'app',
-};
-</script>
+};</script>
 
 <style lang="scss">
 #app {
@@ -20,7 +19,8 @@ export default {
   margin-top: 60px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 

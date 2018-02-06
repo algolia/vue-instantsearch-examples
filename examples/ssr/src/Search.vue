@@ -41,6 +41,7 @@ export default {
     store.refresh();
 
     return store.waitUntilInSync().then(() => {
+      // eslint-disable-next-line no-param-reassign
       context.state = {
         searchStore: store.serialize(),
       };
@@ -56,10 +57,12 @@ export default {
     );
   },
   watch: {
-    $route(to, from) {
-      this.searchStore.query = this.$route.params.query ? this.$route.params.query : '';
+    $route() {
+      this.searchStore.query = this.$route.params.query
+        ? this.$route.params.query
+        : '';
     },
-    'searchStore.query'(to, from) {
+    'searchStore.query'(to) {
       if (to.length === 0) {
         this.$router.push({ name: 'home' });
       } else {

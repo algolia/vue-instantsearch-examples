@@ -49,10 +49,9 @@ export default {
       delete query.index;
 
       this.$router.push({
-         name: 'search',
-         query,
-       });
+        name: 'search',
+        query,
+      });
     },
   },
-};
-</script>
+};</script>
