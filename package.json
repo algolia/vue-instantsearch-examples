@@ -8,14 +8,7 @@
     "format": "prettier --write **/*.{js,vue,json}",
     "test": "yarn lint && yarn build"
   },
-  "comment": "notice that examples/nuxt is missing from the workspace, because it breaks in a workspace",
-  "workspaces": [
-    "examples/e-commerce",
-    "examples/multi-index",
-    "examples/quick-start",
-    "examples/ssr",
-    "examples/vue-router"
-  ],
+  "workspaces": ["examples/*"],
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "eslint": "^4.17.0",
