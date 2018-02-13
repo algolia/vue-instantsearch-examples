@@ -11,4 +11,4 @@ To start, you need to run `yarn` to install all of the dependencies, then go to 
 * nuxt
 * quick-start
 * ssr
-* vue-router (need to run separately in directory)
+* vue-router
