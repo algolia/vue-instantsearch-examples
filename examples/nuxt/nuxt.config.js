@@ -1,6 +1,8 @@
 /* eslint-disable import/no-commonjs */
+const resolve = require('path').resolve;
 
 module.exports = {
+  modulesDir: resolve(__dirname, '../../node_modules/'),
   head: {
     title: 'nuxt-instantsearch',
     meta: [
