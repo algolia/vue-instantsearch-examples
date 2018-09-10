@@ -9,7 +9,12 @@
     <ais-powered-by />
 
     <div class="grid">
-      <ais-index appId="latency" apiKey="6be0576ff61c053d5f9a3225e2a90f76" indexName="bestbuy" :query="query">
+      <ais-index
+        appId="latency"
+        apiKey="6be0576ff61c053d5f9a3225e2a90f76"
+        indexName="bestbuy"
+        :query="query"
+      >
         <ais-results>
           <div slot="header">
             <h2>Products from first index</h2>
@@ -44,7 +49,12 @@
         </ais-results>
       </ais-index>
 
-      <ais-index appId="latency" apiKey="6be0576ff61c053d5f9a3225e2a90f76" indexName="ikea" :query="query">
+      <ais-index
+        appId="latency"
+        apiKey="6be0576ff61c053d5f9a3225e2a90f76"
+        indexName="atis-prods"
+        :query="query"
+      >
         <ais-results>
 
           <div slot="header">
@@ -54,25 +64,18 @@
 
           <template slot-scope="{ result }">
             <div class="search-result">
-              <img class="result__image img-responsive" :src="result.image">
-
+              <img
+                v-if="result.hasImg"
+                class="result__image img-responsive"
+                :src="result.largeImage"
+              >
               <div class="result__info">
                 <h2 class="result__name">
-                  <ais-highlight :result="result" attribute-name="name"/>
+                  <ais-highlight :result="result" attribute-name="title"/>
                 </h2>
-                <div class="result__type">
-                  <ais-highlight :result="result" attribute-name="type"/>
-                </div>
-                <div class="result__description">
-                  <ais-highlight :result="result" attribute-name="description"/>
-                </div>
-                <div class="result__rating">
-                  <template v-for="n in 5">
-                    <span v-if="n <= result.rating" class="result__star"></span>
-                    <span v-else class="result__star--empty"></span>
-                  </template>
-                </div>
-                <div class="result__price">${{result.price}}</div>
+                <div class="result__type">{{result.type}}</div>
+                <div class="result__description">{{result.features && result.features[0]}}</div>
+                <div class="result__price">${{result.priceDisplay}}</div>
               </div>
             </div>
           </template>
@@ -81,7 +84,7 @@
       </ais-index>
     </div>
 
-    <p style="text-align: center;">Data courtesy of ikea.com &amp; bestbuy.com</p>
+    <p style="text-align: center;">Data courtesy of bestbuy.com</p>
   </div>
 
 
