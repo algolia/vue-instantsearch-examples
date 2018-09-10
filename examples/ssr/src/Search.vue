@@ -32,7 +32,7 @@ export default {
       '6be0576ff61c053d5f9a3225e2a90f76'
     );
 
-    store.indexName = 'ikea';
+    store.indexName = 'instant_search';
     store.query = route.params.query ? route.params.query : '';
     store.addFacet('colors', FACET_OR);
     store.highlightPreTag = '<mark>';

@@ -11,10 +11,10 @@
           <ais-search-box>
             <div class="input-group">
               <ais-input
-              placeholder="Search product by name or reference..."
-              :classNames="{
-                'ais-input': 'form-control'
-                }"
+                placeholder="Search product by name or reference..."
+                :classNames="{
+                  'ais-input': 'form-control'
+                  }"
               />
 
               <span class="input-group-btn">
@@ -36,53 +36,80 @@
 
       <div class="row">
         <div class="col-md-2 col-sm-3">
-          <ais-tree-menu :attributes="['category', 'sub_category']" :classNames="{
-            'ais-tree-menu__list': 'list-unstyled',
-            'ais-tree-menu__count': 'badge'
-            }">
+          <ais-tree-menu
+            :attributes="[
+              'hierarchicalCategories.lvl0',
+              'hierarchicalCategories.lvl1',
+              'hierarchicalCategories.lvl2',
+            ]"
+            :classNames="{
+              'ais-tree-menu__list': 'list-unstyled',
+              'ais-tree-menu__count': 'badge'
+            }"
+          >
             <h3 slot="header">Browse by</h3>
           </ais-tree-menu>
 
 
-          <ais-price-range attribute-name="price" :classNames="{
-            'ais-price-range__input': 'form-control'
-            }">
+          <ais-price-range
+            attribute-name="price" 
+            :classNames="{
+              'ais-price-range__input': 'form-control'
+            }"
+          >
             <h3 slot="header">Price</h3>
           </ais-price-range>
 
 
-          <ais-refinement-list attribute-name="materials" :classNames="{
-            'ais-refinement-list__count': 'badge',
-            'ais-refinement-list__item': 'checkbox'
-            }">
-            <h3 slot="header">Material</h3>
+          <ais-refinement-list
+            attribute-name="categories"
+            :classNames="{
+              'ais-refinement-list__count': 'badge',
+              'ais-refinement-list__item': 'checkbox'
+            }"
+          >
+            <h3 slot="header">Category</h3>
           </ais-refinement-list>
 
-          <ais-refinement-list attribute-name="colors" :classNames="{
-            'ais-refinement-list__count': 'badge',
-            'ais-refinement-list__item': 'checkbox'
-            }">
-            <h3 slot="header">Color</h3>
+          <ais-refinement-list
+            attribute-name="brand"
+            :classNames="{
+              'ais-refinement-list__count': 'badge',
+              'ais-refinement-list__item': 'checkbox'
+            }"
+          >
+            <h3 slot="header">Brand</h3>
           </ais-refinement-list>
 
-          <ais-rating attribute-name="rating" :classNames="{
-            'ais-rating__count': 'badge'
-            }">
+          <ais-rating
+            attribute-name="rating"
+            :classNames="{
+              'ais-rating__count': 'badge'
+            }"
+          >
             <h3 slot="header">Rating</h3>
           </ais-rating>
 
         </div>
         <div class="col-md-10 col-sm-9">
           <div class="search-controls form-inline">
-            <ais-sort-by-selector :indices="[
-                {name: 'ikea', label: 'Relevance'},
-                {name: 'ikea_price_asc', label: 'Lowest price'},
-                {name: 'ikea_price_desc', label: 'Highest price'}
-                ]"
-                :classNames="{'ais-sort-by-selector': 'form-control' }"
+            <ais-sort-by-selector
+              :indices="[
+                {name: 'instant_search', label: 'Relevance'},
+                {name: 'instant_search_price_asc', label: 'Lowest price'},
+                {name: 'instant_search_price_desc', label: 'Highest price'}
+              ]"
+              :classNames="{
+                'ais-sort-by-selector': 'form-control'
+              }"
             />
 
-            <ais-results-per-page-selector :options="[12, 24, 48]" :classNames="{'ais-results-per-page-selector': 'form-control' }"/>
+            <ais-results-per-page-selector
+              :options="[12, 24, 48]"
+              :classNames="{
+                'ais-results-per-page-selector': 'form-control'
+              }"
+            />
 
             <ais-powered-by />
 
@@ -115,12 +142,15 @@
 
           <ais-no-results/>
 
-          <ais-pagination class="pagination" :classNames="{
-            'ais-pagination': 'pagination',
-            'ais-pagination__item--active': 'active',
-            'ais-pagination__item--disabled': 'disabled'
-
-            }" v-on:page-change="onPageChange"/>
+          <ais-pagination
+            class="pagination"
+            :classNames="{
+              'ais-pagination': 'pagination',
+              'ais-pagination__item--active': 'active',
+              'ais-pagination__item--disabled': 'disabled'
+            }"
+            v-on:page-change="onPageChange"
+          />
 
         </div>
       </div>
@@ -199,6 +229,7 @@ export default {
 
 .result__image {
   margin-bottom: 100px;
+  height: 150px;
 }
 
 .result__name {
